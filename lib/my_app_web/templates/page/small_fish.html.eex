@@ -13,12 +13,6 @@ animation-timing-function: steps(1);
   animation: sf_move 3s linear infinite;
 }
 
-@media only screen and (max-width: 1030px) {
-    #small_fish {
-      display: none;
-    }
-  }
-
 @keyframes sf_move {
   0%, 100% {
     transform: translate(0px, 0px);

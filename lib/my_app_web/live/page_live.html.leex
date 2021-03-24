@@ -1,8 +1,21 @@
+<div class="bubble-scene">
+  <%= render MyAppWeb.PageView, "bubbles.html", [] %>
+</div>
+
 <div class="fish-tank" phx-window-keydown="move_fish">
   <%= for {_id, fish} <- @fishes do %>
-    <div class="small-fish" style="<%= fish_style(fish) %>">
-      <%= render MyAppWeb.PageView, "small_fish.html", [] %>
-    </div>
+    <%= case fish.size do %>
+      <% :big -> %>
+        <div class="big-fish" style="<%= fish_style(fish) %>">
+          <%= render MyAppWeb.PageView, "big_fish.html", [] %>
+        </div>
+
+      <% :small -> %>
+        <div class="small-fish" style="<%= fish_style(fish) %>">
+          <%= render MyAppWeb.PageView, "small_fish.html", [] %>
+        </div>
+
+    <% end %>
   <% end %>
 </div>
 

@@ -8,6 +8,7 @@ defmodule MyApp.Fish do
       x: Enum.random(x_lower..x_upper),
       y: Enum.random(y_lower..y_upper),
       direction: if(Enum.random(0..1) == 0, do: :right, else: :left),
+      size: if(Enum.random(0..3) == 0, do: :big, else: :small),
     }
   end
 
