@@ -3,15 +3,15 @@
 </div>
 
 <div class="fish-tank" phx-window-keydown="move_fish">
-  <%= for {_id, fish} <- @fishes do %>
+  <%= for {id, fish} <- @fishes do %>
     <%= case fish.size do %>
       <% :big -> %>
-        <div class="big-fish" style="<%= fish_style(fish) %>">
+        <div id="fish-<%= id %>" class="big-fish" style="<%= fish_style(fish) %>">
           <%= render MyAppWeb.PageView, "big_fish.html", [] %>
         </div>
 
       <% :small -> %>
-        <div class="small-fish" style="<%= fish_style(fish) %>">
+        <div id="fish-<%= id %>" class="small-fish" style="<%= fish_style(fish) %>">
           <%= render MyAppWeb.PageView, "small_fish.html", [] %>
         </div>
 
