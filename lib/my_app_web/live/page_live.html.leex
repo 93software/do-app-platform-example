@@ -1,3 +1,11 @@
+<div class="fish-tank" phx-window-keydown="move_fish">
+  <%= for {_id, fish} <- @fishes do %>
+    <div class="small-fish" style="<%= fish_style(fish) %>">
+      <%= render MyAppWeb.PageView, "small_fish.html", [] %>
+    </div>
+  <% end %>
+</div>
+
 <div class="page-background">
   <div class="page-title-wrapper">
     <h1 class="page-title">Running on DigitalOcean</h1>

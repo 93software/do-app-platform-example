@@ -13,6 +13,8 @@ defmodule MyApp.Application do
       MyAppWeb.Telemetry,
       # Start the PubSub system
       {Phoenix.PubSub, name: MyApp.PubSub},
+      # Start the FishTank server
+      MyApp.FishTank,
       # Start the Endpoint (http/https)
       MyAppWeb.Endpoint
       # Start a worker by calling: MyApp.Worker.start_link(arg)
