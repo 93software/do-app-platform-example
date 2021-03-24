@@ -8,6 +8,11 @@ config :my_app, MyAppWeb.Endpoint,
     signing_salt: System.fetch_env!("LIVE_VIEW_SIGNING_SALT")
   ]
 
+if check_origin = System.get_env("CHECK_ORIGIN") do
+  config :my_app, MyAppWeb.Endpoint,
+    check_origin: check_origin |> String.split(~r/,\s?/) |> Enum.reject(& &1 == "")
+end
+
 config :my_app, MyApp.Repo,
   url: System.fetch_env!("DB_DATABASE_URL"),
   maintenance_database: System.fetch_env!("DB_DATABASE"),
